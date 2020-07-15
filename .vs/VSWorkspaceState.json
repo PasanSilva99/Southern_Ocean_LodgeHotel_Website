@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\img"
+    "\\img",
+    "\\js"
   ],
-  "SelectedNode": "\\login.html",
+  "SelectedNode": "\\js\\loginScript.js",
   "PreviewInSolutionExplorer": false
 }
