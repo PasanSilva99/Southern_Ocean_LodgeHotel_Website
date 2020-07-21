@@ -20,7 +20,7 @@ $result = $con->query($qry);
 
 if($result->num_rows>0){
     while($row = $result->fetch_assoc()){
-    $userUserName = $row["Email"];
+    $userUserName = $row["Email"];  
     $userPassword = $row["Password"];
     }
 }
