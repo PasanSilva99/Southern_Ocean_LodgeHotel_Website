@@ -58,3 +58,34 @@ form {
     padding-top: 1rem;
     text-align: center;
 }
+
+.progressbar-back {
+    margin-top: 5px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    color: #000!important;
+    background-color: #f1f1f1!important;
+}
+
+.progress-inner {
+    transition: 0.3s;
+    font-size: 2px;
+    margin-top: 5px;
+    border-radius: 16px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    padding: 0.01em, 5px;
+    background-color: blueviolet !important;
+}
+
+.progress-inner:after,
+.progress-inner:before {
+    content: "";
+    display: table;
+    clear: both
+}
