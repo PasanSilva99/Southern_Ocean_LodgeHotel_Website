@@ -42,7 +42,7 @@
        } 
        else {
            // echo "Error: " . $qry . "<br>" . $con->error; //show the error
-      }   
+       }   
 
     }
     else

@@ -12,7 +12,11 @@
 
     //Show the error Message
     //I filtered out the incoming text because it may contain scripting attacks
-    if($state == "erroremailexists")
+    if($state == null)
+    {
+
+    }
+    else if($state == "erroremailexists")
     {
         //If it a known error
         echo "$state";
