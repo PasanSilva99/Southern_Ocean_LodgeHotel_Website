@@ -1,35 +1,88 @@
-<?php
-    $FirstName = $_REQUEST["firstName"];
-    $LastName = $_REQUEST["lastName"];
-    $Email = $_REQUEST["email"];
-    $psw = $_REQUEST["psw"];    
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbName = "hoteldb";
+<!DOCTYPE html>
+<html lang="en">
 
-    $con = new mysqli($servername, $username, $password, $dbName);
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    if($con->connect_error){
-        die("Connection Failed: ". $con->connect_error);
-    }
-    
-    $qry = "INSERT INTO userData (FirstName, LastName, Email, Password) VALUES('".$FirstName ."', '".$LastName."', '".$Email."', '".$psw."')";
-    $result = $con->query($qry);
-    
-    if ($con->query($qry) === TRUE) {
-        echo "New record created successfully";
-      } else {
-        echo "Error: " . $qry . "<br>" . $con->error;
-      }
-    
-    if($retrievedPassword == $userPassword && $retrievedUserName == $userUserName){
-        #Password Works
-        header("Location: index.html");
-    }
-    else{
-        #Login Unsuccessfull
-    
-    }
-    
-?>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/signupstyle.css">
+
+    <script src="js/signupScript.js"></script>
+    <script src="js/Validate.js"></script>
+    <title>SignUp</title>
+
+    <script>
+        function checkNull() {
+
+        }
+
+        function ValidateCpsw() {
+            var check = document.signup.confirmPsw.value;
+            var psw = document.signup.password.value;
+            var form = document.getElementById("form");
+
+            if (check == psw) {
+                alert("Worked");
+            } else {
+                form.action = "#";
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!-- Login form creation starts-->
+    <section class="container-fluid">
+        <!-- row and justify-content-center class is used to place the form in center -->
+        <section class="row justify-content-center">
+            <section class="col-12 col-sm-6 col-md-4">
+                <form id="signup" class="form-container" action="signupsr.php" method="POST">
+                    <div class="form-group form-outline-light">
+                        <h4 class="text-center font-weight-bold" id="hotelname"> Southern Ocean Lodge </h4>
+                        <h4 class="text-center font-weight-bold"> Create Account </h4>
+
+                        <label for="InputFirstName">First Name</label>
+                        <input required name="firstName" type="text" class="form-control" id="InputFirstName" aria-describeby="emailHelp" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputLastName">Last Name</label>
+                        <input required name="lastName" type="text" class="form-control" id="InputLastName" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputEmail">Email Address</label>
+                        <input name="email" requKsired type="text" class="form-control" id="InputEmail" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputPassword2">Enter Password</label>
+                        <input name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required name="password" type="password" class="form-control" id="InputPassword"
+                            placeholder="Password">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="InputPassword3">Confirm Password</label>
+                        <input required oninput="ValidateCpsw();" name="confirmPsw" type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password">
+                    </div>
+
+                    <button type="submit" class=" btn btn-outline-light btn-sm">Sign Up</button>
+                    <div class="form-footer">
+                        <p>By Clicking the SignUp button, you agree to our Trems & Conditions, and Privacy Policy</p>
+
+                    </div>
+                </form>
+            </section>
+        </section>
+    </section>
+    <!-- Login form creation ends -->
+</body>
+
+</html>
