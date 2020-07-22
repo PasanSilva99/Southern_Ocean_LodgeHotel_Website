@@ -1,3 +1,32 @@
+<?php
+
+    //created a function check whether there is a incoming value
+    function getIfSet(&$value, $default = null)
+    {
+        //if there is a value return it, else return the default value.
+        return isset($value) ? $value : $default;
+    }
+    
+    //assigned to tthe variable state
+    $state = getIfSet($_REQUEST['st']);
+
+    //Show the error Message
+    //I filtered out the incoming text because it may contain scripting attacks
+    if($state == "erroremailexists")
+    {
+        //If it a known error
+        echo "$state";
+    }
+    else
+    {
+        //If it is not a known error
+        echo "Unidentified Command has been entered to this web page. We will inform FBI, CIA and Local Police about this.";
+        echo "Also we will order a person from the Dark Web to find you 😈!!!";
+    }
+
+?>
+
+<!--Start of the HTMl-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,6 +70,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
+    <p>
+        <script>
+            alert("Also script can go with p tag");
+        </script>
+    </p>
     <!-- Login form creation starts-->
     <section class="container-fluid">
         <!-- row and justify-content-center class is used to place the form in center -->

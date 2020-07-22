@@ -33,10 +33,10 @@
         echo "Email Ok";
         //the sql quary
         $qry2 = "INSERT INTO userData (FirstName, LastName, Email, Password) VALUES('".$FirstName ."', '".$LastName."', '".$Email."', '".$psw."')";
-        $result2 = $con->query($qry); //Execute the quary
+        $result2 = $con->query($qry2); //Execute the quary
     
        //check weather it is success
-       if ($con->query($qry2) === TRUE) {
+       if ($result2 === TRUE) {
            header("Location: login.html");// this will redirect to the login page
            //so the user can login with their added details.
        } 
@@ -47,11 +47,7 @@
     }
     else
     {
-        
-        echo "<script>
-            alert('Email Exists');
-            </script>";
-        header("Location: signup.html?st=erroremailexists");
+        header("Location: signup.php?st=erroremailexists");
     }
     
 ?>
