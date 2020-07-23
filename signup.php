@@ -24,8 +24,7 @@
     else
     {
         //If it is not a known error
-        echo "Unidentified Command has been entered to this web page. We will inform FBI, CIA and Local Police about this.";
-        echo "Also we will order a person from the Dark Web to find you 😈!!!";
+        echo "Invalid Request";
     }
 
 ?>
@@ -48,10 +47,6 @@
     <title>SignUp</title>
 
     <script>
-        function checkNull() {
-
-        }
-
         function ValidateCpsw() {
             var check = document.signup.confirmPsw.value;
             var psw = document.signup.password.value;
@@ -74,11 +69,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-    <p>
-        <script>
-            alert("Also script can go with p tag");
-        </script>
-    </p>
     <!-- Login form creation starts-->
     <section class="container-fluid">
         <!-- row and justify-content-center class is used to place the form in center -->
@@ -109,6 +99,7 @@
                     <div class="form-group">
                         <label for="InputPassword3">Confirm Password</label>
                         <input required oninput="ValidateCpsw();" name="confirmPsw" type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password">
+                        <p id="error-text"></p>
                     </div>
 
                     <button type="submit" class=" btn btn-outline-light btn-sm">Sign Up</button>
